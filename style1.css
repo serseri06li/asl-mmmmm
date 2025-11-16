@@ -1,165 +1,102 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+* { margin:0; padding:0; box-sizing:border-box; }
 
 :root {
-    --fondo: #ffebf2;
-    --fondo-sobre: #ffe3ed;
-    --solapa-sobre: #ffccd5;
-    --cuerpo-sobre: #ffc1d1;
-    --sombra: rgba(0, 0, 0, 0.2);
-    --texto: #003049;
-    --corazon: #ff477e;
+    --fondo:#ffebf2;
+    --fondo-sobre:#ffe3ed;
+    --solapa-sobre:#ffccd5;
+    --cuerpo-sobre:#ffc1d1;
+    --sombra: rgba(0,0,0,0.2);
+    --texto:#003049;
+    --corazon:#ff477e;
 }
 
 body {
     background: var(--fondo);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    height: 100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    height:100vh;
 }
 
 .yanan-baslik {
     animation: yavasYanSondur 2.5s linear infinite;
-    font-family: 'Marck Script', cursive;
-    font-size: 46px;
-    font-weight: bold;
-    color: #4e4b4c;
-    letter-spacing: 2px;
-    text-shadow: 0 4px 24px #ffb5cd55;
-    margin-bottom: 36px;
-    text-align: center;
+    font-family:'Marck Script', cursive;
+    font-size:46px;
+    font-weight:bold;
+    color:#4e4b4c;
+    letter-spacing:2px;
+    text-shadow:0 4px 24px #ffb5cd55;
+    margin-bottom:36px;
+    text-align:center;
 }
 
 @keyframes yavasYanSondur {
-    0%, 40%, 100% { opacity: 1; }
-    60% { opacity: 0.15; }
+    0%,40%,100%{opacity:1;}
+    60%{opacity:0.15;}
 }
 
-.contenedor {
-    width: 400px;
-    position: relative;
-}
+.contenedor { width:400px; position:relative; }
 
-.envoltura-sobre {
-    position: relative;
-    background-color: var(--fondo-sobre);
-    box-shadow: 0 0 40px var(--sombra);
-    border-radius: 15px;
-    cursor: pointer;
-}
+.envoltura-sobre { position:relative; cursor:pointer; }
 
-.sobre {
-    position: relative;
-    width: 400px;
-    height: 300px;
-}
+.sobre { position:relative; width:400px; height:300px; }
 
 .sobre::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 4;
-    border-top: 180px solid var(--solapa-sobre);
-    border-left: 200px solid transparent;
-    border-right: 200px solid transparent;
-    transform-origin: top;
-    transition: transform 0.5s ease-in-out;
-    border-radius: 10px;
+    content:"";
+    position:absolute;
+    top:0; left:0; right:0;
+    border-top:180px solid var(--solapa-sobre);
+    border-left:200px solid transparent;
+    border-right:200px solid transparent;
+    transform-origin:top;
+    transition: transform .5s ease-in-out;
+    border-radius:10px;
 }
 
-.solapa-derecha,
-.solapa-izquierda {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--cuerpo-sobre);
-    border-radius: 10px;
+.solapa-derecha,.solapa-izquierda {
+    position:absolute; top:0; width:100%; height:100%;
+    background-color: var(--cuerpo-sobre); border-radius:10px;
 }
 
-.solapa-derecha {
-    right: 0;
-    clip-path: polygon(100% 0, 0 100%, 100% 100%);
-}
-
-.solapa-izquierda {
-    left: 0;
-    clip-path: polygon(0 0, 0 100%, 100% 100%);
-}
+.solapa-derecha { right:0; clip-path: polygon(100% 0, 0 100%, 100% 100%); }
+.solapa-izquierda { left:0; clip-path: polygon(0 0, 0 100%, 100% 100%); }
 
 .carta {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #fff0f5, #ffe4e1);
-    border-radius: 10px;
-    box-shadow: 0 0 5px var(--sombra);
-    text-align: center;
-    padding: 20px;
-    transition: transform 0.5s ease-in-out;
-    z-index: 1;
-    overflow-y: auto;
+    position:absolute; bottom:0; width:100%; height:100%;
+    background: linear-gradient(135deg,#fff0f5,#ffe4e1);
+    border-radius:10px; box-shadow:0 0 5px var(--sombra);
+    text-align:center; padding:20px; transition: transform .5s ease-in-out; z-index:1;
 }
 
-.carta.mostrar-carta {
-    transform: translateY(-280px);
-    z-index: 1000;
-}
+.carta.mostrar-carta { transform: translateY(-280px); z-index:1000; }
 
-.contenido {
-    font-family: 'Marck Script', cursive;
-    font-size: 24px;
-    color: #d6336c;
-    line-height: 1.6;
-    text-align: center;
-    border: 3px dotted var(--texto);
-    padding: 10px;
-    height: 100%;
-    cursor: pointer;
-    overflow-y: auto;
+.contenido { font-family:'Marck Script',cursive; font-size:24px; color:#d6336c;
+    line-height:1.6; text-align:center; border:3px dotted var(--texto); padding:10px;
+    height:100%; cursor:pointer; overflow-y:auto;
 }
 
 .corazon {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 30px;
-    height: 30px;
-    background-color: var(--corazon);
-    transform: translate(-50%, -50%) rotate(45deg);
-    transition: transform 0.5s ease-in-out;
-    z-index: 5;
-    cursor: pointer;
+    position:absolute; top:50%; left:50%;
+    width:30px; height:30px;
+    background-color:var(--corazon);
+    transform:translate(-50%,-50%) rotate(45deg);
+    transition:transform 0.5s ease-in-out;
+    z-index:5; cursor:pointer;
 }
 
-.corazon::before,
-.corazon::after {
-    content: "";
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    background-color: var(--corazon);
-    border-radius: 50%;
+.corazon::before, .corazon::after {
+    content:""; position:absolute; width:30px; height:30px;
+    background-color:var(--corazon); border-radius:50%;
 }
-
-.corazon:before { top: -15px; }
-.corazon:after { right: 15px; }
+.corazon:before { top:-15px; }
+.corazon:after { right:15px; }
 
 .abierto .sobre::before { transform: rotateX(180deg); }
-.abierto .corazon { transform: translate(-50%, -50%) rotate(90deg); }
-
-.envoltura-sobre.desactivar-sobre .sobre::before { pointer-events: none; }
+.abierto .corazon { transform:translate(-50%,-50%) rotate(90deg); }
 
 @media screen and (max-width:400px){
-    .contenedor { width: 300px; }
-    .sobre { width: 300px; height: 250px; }
-    .sobre::before { border-top:150px solid var(--solapa-sobre); border-left:150px solid transparent; border-right:150px solid transparent; }
+    .contenedor{ width:300px; }
+    .sobre{ width:300px; height:250px; }
+    .sobre::before{ border-top:150px solid var(--solapa-sobre); border-left:150px solid transparent; border-right:150px solid transparent; }
 }
